@@ -22,3 +22,49 @@ cd build
 cmake ..
 make
 ```
+
+## Notes
+
+The `com.cana.complex.xml` file is hand-modified to include the following XML nodes:
+
+```xml
+    <method name="getCustomData">
+      <arg type="a{sv}" direction="out" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="customData" />
+    </method>
+    <method name="getCustomDataList">
+      <arg type="av" direction="out" />
+    </method>
+```
+
+As a result the generation of the Adaptor and Proxy classes does not involve the `qdbusxml2cpp` step (converting the C++ interface class to xml).
+
+The Adaptor class is modified:
+
+#### `complexAdaptor.h`
+
+```c++
+  public Q_SLOTS: // METHODS
+    customData getCustomData();
+    QList<customData> getCustomDataList();
+```
+#### `complexAdaptor.cpp`
+
+```c++
+customData ComplexAdaptor::getCustomData() {
+    // handle method call com.cana.complex.getCustomData
+    customData out0;
+    QMetaObject::invokeMethod(parent(), "getCustomData",
+                              Q_RETURN_ARG(customData, out0));
+    return out0;
+}
+
+QList<customData> ComplexAdaptor::getCustomDataList() {
+    // handle method call com.cana.complex.getCustomDataList
+    QList<customData> out0;
+    QMetaObject::invokeMethod(parent(), "getCustomDataList",
+                              Q_RETURN_ARG(QList<customData>, out0));
+    return out0;
+}
+```
+
