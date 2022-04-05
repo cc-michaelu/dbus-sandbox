@@ -15,5 +15,8 @@
       <arg type="a{sv}" direction="out" />
       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="customData" />
     </method>
+    <method name="getCustomDataList">
+      <arg type="av" direction="out" />
+    </method>
   </interface>
 </node>

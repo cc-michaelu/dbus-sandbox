@@ -45,6 +45,12 @@ class ComCanaComplexInterface : public QDBusAbstractInterface {
                                          argumentList);
     }
 
+    inline QDBusPendingReply<QList<customData>> getCustomDataList() {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("getCustomDataList"),
+                                         argumentList);
+    }
+
     inline QDBusPendingReply<QString> getString() {
         QList<QVariant> argumentList;
         return asyncCallWithArgumentList(QStringLiteral("getString"),

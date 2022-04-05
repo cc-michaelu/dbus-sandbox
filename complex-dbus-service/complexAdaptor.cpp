@@ -7,7 +7,9 @@
  * This is an auto-generated file.
  * Do not edit! All changes made to it will be lost.
  */
+
 #include "complexAdaptor.h"
+#include "customdata.h"
 #include <QtCore/QByteArray>
 #include <QtCore/QList>
 #include <QtCore/QMap>
@@ -34,6 +36,14 @@ customData ComplexAdaptor::getCustomData() {
     customData out0;
     QMetaObject::invokeMethod(parent(), "getCustomData",
                               Q_RETURN_ARG(customData, out0));
+    return out0;
+}
+
+QList<customData> ComplexAdaptor::getCustomDataList() {
+    // handle method call com.cana.complex.getCustomDataList
+    QList<customData> out0;
+    QMetaObject::invokeMethod(parent(), "getCustomDataList",
+                              Q_RETURN_ARG(QList<customData>, out0));
     return out0;
 }
 

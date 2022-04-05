@@ -47,3 +47,13 @@ customData complexInterface::getCustomData() {
 
     return data;
 }
+
+QList<customData> complexInterface::getCustomDataList() {
+    QList<customData> list = {
+        customData("michael", 50),
+        customData("dale", 50),
+        customData("frank", 50),
+    };
+
+    return list;
+}

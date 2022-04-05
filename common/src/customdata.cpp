@@ -29,9 +29,9 @@ customData &customData::operator=(const customData &other) {
     return *this;
 }
 
-QString customData::getName() { return name; }
+QString customData::getName() const { return name; }
 
-int customData::getValue() { return value; }
+int customData::getValue() const { return value; }
 
 void customData::registerMetaType() {
     qRegisterMetaType<customData>("customData");

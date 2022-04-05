@@ -11,8 +11,8 @@
 
 #ifndef COMPLEXADAPTOR_H
 #define COMPLEXADAPTOR_H
-#include "customdata.h"
 
+#include "customdata.h"
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
 QT_BEGIN_NAMESPACE
@@ -48,6 +48,9 @@ class ComplexAdaptor : public QDBusAbstractAdaptor {
                 "      <annotation value=\"customData\" "
                 "name=\"org.qtproject.QtDBus.QtTypeName.Out0\"/>\n"
                 "    </method>\n"
+                "    <method name=\"getCustomDataList\">\n"
+                "      <arg direction=\"out\" type=\"av\"/>\n"
+                "    </method>\n"
                 "  </interface>\n"
                 "")
   public:
@@ -57,6 +60,7 @@ class ComplexAdaptor : public QDBusAbstractAdaptor {
   public:         // PROPERTIES
   public Q_SLOTS: // METHODS
     customData getCustomData();
+    QList<customData> getCustomDataList();
     QString getString();
     QStringList getStringList();
     void quit();

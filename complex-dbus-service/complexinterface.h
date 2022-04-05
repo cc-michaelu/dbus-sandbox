@@ -22,6 +22,7 @@ class complexInterface : public QObject {
 
     QStringList getStringList();
     customData getCustomData();
+    QList<customData> getCustomDataList();
 
   signals:
 

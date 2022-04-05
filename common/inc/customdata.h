@@ -21,8 +21,8 @@ class customData {
 
     static void registerMetaType();
 
-    QString getName();
-    int getValue();
+    QString getName() const;
+    int getValue() const;
 
   private:
     QString name;
