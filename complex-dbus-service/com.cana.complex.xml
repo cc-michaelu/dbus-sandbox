@@ -1,0 +1,19 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="com.cana.complex">
+    <method name="quit"></method>
+    <method name="getString">
+      <arg type="s" direction="out" />
+    </method>
+    <method name="setString">
+      <arg name="str" type="s" direction="in" />
+    </method>
+    <method name="getStringList">
+      <arg type="as" direction="out" />
+    </method>
+    <method name="getCustomData">
+      <arg type="a{sv}" direction="out" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="customData" />
+    </method>
+  </interface>
+</node>
