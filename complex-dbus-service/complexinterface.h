@@ -20,9 +20,13 @@ class complexInterface : public QObject {
     QString getString();
     void setString(QString str);
 
+    void setStringList(QStringList list);
+
     QStringList getStringList();
     customData getCustomData();
     QList<customData> getCustomDataList();
+
+    QVariantList getListOfMaps();
 
   signals:
 
@@ -32,6 +36,11 @@ class complexInterface : public QObject {
   private:
     QTimer timer;
     QString the_string = "This is a test";
+    QStringList the_string_list = {
+      "Item #1",
+      "Item #2",
+      "Item #3",
+    };
 };
 
 #endif // __COMPLEXINTERFACE_H__

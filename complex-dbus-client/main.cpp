@@ -1,5 +1,6 @@
 #include "complexProxy.h"
 #include "customdata.h"
+#include <QTextStream>
 #include <QCoreApplication>
 #include <QDebug>
 #include <QTimer>
@@ -28,6 +29,41 @@ int main(int argc, char *argv[]) {
 
     complex_if->deleteLater();
 
+    qInfo() << "Calling getStringList()";
+    const auto old_list = complex_if->getStringList().value();
+    QString line;
+    QTextStream str(&line);
+    str << "{ ";
+    for (const auto &val : old_list) {
+
+        str << val;
+        if (val != old_list.last())
+            str << ", ";
+    }
+    str << " }";
+
+    qInfo().noquote() << line;
+
+    QStringList new_list = {
+        "Peter",
+        "Paul",
+        "Mary",
+        "Bob"
+    };
+
+    qInfo() << "Calling setStringList()";
+    complex_if->setStringList(new_list);
+
+    qInfo() << "Calling getListOfMaps()";
+    auto list_of_maps = complex_if->getListOfMaps().value();
+    for (const auto &map : list_of_maps) {
+        const auto &mymap = qdbus_cast<QVariantMap>(qvariant_cast<QDBusArgument>(map));
+
+        for (const auto & map_keys : mymap.keys()) {
+            qInfo() << map_keys << ":" << mymap[map_keys].toString();
+        }
+        // qInfo() << mymap["name"].toString();
+    }
     QTimer::singleShot(0, [&]() { a.quit(); });
 
     return a.exec();

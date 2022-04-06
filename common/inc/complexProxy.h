@@ -51,6 +51,12 @@ class ComCanaComplexInterface : public QDBusAbstractInterface {
                                          argumentList);
     }
 
+    inline QDBusPendingReply<QVariantList> getListOfMaps() {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("getListOfMaps"),
+                                         argumentList);
+    }
+
     inline QDBusPendingReply<QString> getString() {
         QList<QVariant> argumentList;
         return asyncCallWithArgumentList(QStringLiteral("getString"),
@@ -75,6 +81,12 @@ class ComCanaComplexInterface : public QDBusAbstractInterface {
                                          argumentList);
     }
 
+    inline QDBusPendingReply<> setStringList(const QStringList &list) {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(list);
+        return asyncCallWithArgumentList(QStringLiteral("setStringList"),
+                                         argumentList);
+    }
   Q_SIGNALS: // SIGNALS
 };
 

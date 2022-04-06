@@ -8,6 +8,9 @@
     <method name="setString">
       <arg name="str" type="s" direction="in" />
     </method>
+    <method name="setStringList">
+      <arg name="list" type="as" direction="in"/>
+    </method>
     <method name="getStringList">
       <arg type="as" direction="out" />
     </method>
@@ -17,6 +20,10 @@
     </method>
     <method name="getCustomDataList">
       <arg type="av" direction="out" />
+    </method>
+    <method name="getListOfMaps">
+      <arg type="av" direction="out" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QVariantList" />
     </method>
   </interface>
 </node>

@@ -4,6 +4,7 @@
 #include <QDBusArgument>
 #include <QList>
 #include <QString>
+#include <QVariantMap>
 
 class customData {
   public:
@@ -31,5 +32,6 @@ class customData {
 
 Q_DECLARE_METATYPE(customData)
 Q_DECLARE_METATYPE(QList<customData>)
+Q_DECLARE_METATYPE(QList<QVariantMap>)
 
 #endif // __CUSTOMDATA_H__

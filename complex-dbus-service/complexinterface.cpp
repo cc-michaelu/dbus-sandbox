@@ -2,6 +2,7 @@
 #include "complexAdaptor.h"
 #include <QDebug>
 #include <QList>
+#include <QVariantMap>
 #include <QMetaObject>
 #include <QObject>
 
@@ -30,17 +31,10 @@ QString complexInterface::getString() {
     qDebug() << Q_FUNC_INFO;
     return the_string;
 }
+
 void complexInterface::setString(QString str) { the_string = str; }
 
-QStringList complexInterface::getStringList() {
-    QStringList list = {
-        "Item #1",
-        "Item #2",
-        "Item #3",
-    };
-
-    return list;
-}
+QStringList complexInterface::getStringList() { return the_string_list; }
 
 customData complexInterface::getCustomData() {
     customData data("michael", 50);
@@ -53,7 +47,35 @@ QList<customData> complexInterface::getCustomDataList() {
         customData("michael", 50),
         customData("dale", 50),
         customData("frank", 50),
+        customData("oner", 50),
     };
 
     return list;
+}
+
+void complexInterface::setStringList(QStringList list) {
+    qDebug() << Q_FUNC_INFO;
+    qInfo() << list;
+    the_string_list = list;
+}
+
+QVariantList complexInterface::getListOfMaps() {
+    qDebug() << Q_FUNC_INFO;
+
+    QVariantList newlist;
+    QVariantMap map;
+
+    map.clear();
+    map["name"] = "michael";
+    map["age"] = 50;
+
+    newlist.push_back(map);
+
+    map.clear();
+    map["name"] = "ritesh";
+    map["age"] = 45;
+
+    newlist.push_back(map);
+
+    return newlist;
 }

@@ -40,6 +40,9 @@ class ComplexAdaptor : public QDBusAbstractAdaptor {
                 "    <method name=\"setString\">\n"
                 "      <arg direction=\"in\" type=\"s\" name=\"str\"/>\n"
                 "    </method>\n"
+                "    <method name=\"setStringList\">\n"
+                "      <arg direction=\"in\" type=\"as\" name=\"list\"/>\n"
+                "    </method>\n"
                 "    <method name=\"getStringList\">\n"
                 "      <arg direction=\"out\" type=\"as\"/>\n"
                 "    </method>\n"
@@ -51,6 +54,11 @@ class ComplexAdaptor : public QDBusAbstractAdaptor {
                 "    <method name=\"getCustomDataList\">\n"
                 "      <arg direction=\"out\" type=\"av\"/>\n"
                 "    </method>\n"
+                "    <method name=\"getListOfMaps\">\n"
+                "      <arg direction=\"out\" type=\"a{sv}\"/>\n"
+                "      <annotation value=\"QVariantMap\" "
+                "name=\"org.qtproject.QtDBus.QtTypeName.Out0\"/>\n"
+                "    </method>\n"
                 "  </interface>\n"
                 "")
   public:
@@ -61,10 +69,12 @@ class ComplexAdaptor : public QDBusAbstractAdaptor {
   public Q_SLOTS: // METHODS
     customData getCustomData();
     QList<customData> getCustomDataList();
+    QVariantList getListOfMaps();
     QString getString();
     QStringList getStringList();
     void quit();
     void setString(const QString &str);
+    void setStringList(const QStringList &list);
   Q_SIGNALS: // SIGNALS
 };
 

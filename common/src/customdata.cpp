@@ -36,8 +36,11 @@ int customData::getValue() const { return value; }
 void customData::registerMetaType() {
     qRegisterMetaType<customData>("customData");
     qRegisterMetaType<QList<customData>>("QList<customData>");
+    qRegisterMetaType<QList<QVariantMap>>("QList<QVariantMap>");
+
     qDBusRegisterMetaType<customData>();
     qDBusRegisterMetaType<QList<customData>>();
+    qDBusRegisterMetaType<QList<QVariantMap>>();
 }
 
 QDBusArgument &operator<<(QDBusArgument &argument, const customData &data) {

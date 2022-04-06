@@ -4,8 +4,8 @@ source ./dbus-functions.sh
 
 
 generate_dbus_metadata  complexinterface.h \
-                        com.cana.complex.xml \
-                        complexAdaptor \
-                        complexProxy
+                        dbus/com.cana.complex.xml \
+                        dbus/complexAdaptor \
+                        dbus/complexProxy
 
 

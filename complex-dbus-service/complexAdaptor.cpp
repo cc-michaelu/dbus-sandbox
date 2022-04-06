@@ -47,6 +47,14 @@ QList<customData> ComplexAdaptor::getCustomDataList() {
     return out0;
 }
 
+QVariantList ComplexAdaptor::getListOfMaps()
+{
+    // handle method call com.cana.complex.getListOfMaps
+    QVariantList out0;
+    QMetaObject::invokeMethod(parent(), "getListOfMaps", Q_RETURN_ARG(QVariantList, out0));
+    return out0;
+}
+
 QString ComplexAdaptor::getString() {
     // handle method call com.cana.complex.getString
     QString out0;
@@ -72,3 +80,10 @@ void ComplexAdaptor::setString(const QString &str) {
     // handle method call com.cana.complex.setString
     QMetaObject::invokeMethod(parent(), "setString", Q_ARG(QString, str));
 }
+
+void ComplexAdaptor::setStringList(const QStringList &list) {
+    // handle method call com.cana.complex.setStringList
+    QMetaObject::invokeMethod(parent(), "setStringList",
+                              Q_ARG(QStringList, list));
+}
+
