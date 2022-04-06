@@ -59,11 +59,15 @@ int main(int argc, char *argv[]) {
     for (const auto &map : list_of_maps) {
         const auto &mymap = qdbus_cast<QVariantMap>(qvariant_cast<QDBusArgument>(map));
 
-        for (const auto & map_keys : mymap.keys()) {
-            qInfo() << map_keys << ":" << mymap[map_keys].toString();
+        for (const auto & map_key : mymap.keys()) {
+            QString line;
+            QTextStream os(&line);
+            os << qSetFieldWidth(8) << right << map_key << reset << " : " << mymap[map_key].toString();
+            qInfo().noquote() << line;
+            // qInfo().noquote() << map_keys << ":" << mymap[map_keys].toString();
         }
-        // qInfo() << mymap["name"].toString();
     }
+
     QTimer::singleShot(0, [&]() { a.quit(); });
 
     return a.exec();

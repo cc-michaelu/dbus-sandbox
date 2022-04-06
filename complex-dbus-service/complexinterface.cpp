@@ -2,9 +2,9 @@
 #include "complexAdaptor.h"
 #include <QDebug>
 #include <QList>
-#include <QVariantMap>
 #include <QMetaObject>
 #include <QObject>
+#include <QVariantMap>
 
 complexInterface::complexInterface(QObject *parent)
     : QObject(parent) /*, timer(this)*/ {
@@ -62,20 +62,30 @@ void complexInterface::setStringList(QStringList list) {
 QVariantList complexInterface::getListOfMaps() {
     qDebug() << Q_FUNC_INFO;
 
-    QVariantList newlist;
-    QVariantMap map;
+    QVariantList newlist = {
+        QVariantMap({
+            {"name", "michael"},
+            {"age", 40},
+        }),
+        QVariantMap({
+            {"name", "james"},
+            {"age", 42},
+        }),
+    };
 
-    map.clear();
-    map["name"] = "michael";
-    map["age"] = 50;
+    // QVariantMap map;
 
-    newlist.push_back(map);
+    // map.clear();
+    // map["name"] = "michael";
+    // map["age"] = 50;
 
-    map.clear();
-    map["name"] = "ritesh";
-    map["age"] = 45;
+    // newlist.push_back(map);
 
-    newlist.push_back(map);
+    // map.clear();
+    // map["name"] = "ritesh";
+    // map["age"] = 45;
+
+    // newlist.push_back(map);
 
     return newlist;
 }
