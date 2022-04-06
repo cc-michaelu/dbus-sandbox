@@ -12,6 +12,28 @@ This is the DBus service which exposes a function `getCustomData()` which return
 
 This is the DBus client which simply calls the `getCustomData()` method and displays the results returned.
 
+#### Sample output
+
+```bash
+$ ./build/complex-dbus-client/complex-dbus-client
+Calling getCustomData()
+Name = "michael"
+Value = 50
+Calling getCustomDataList()
+{ "michael", 50 }
+{ "dale", 50 }
+{ "frank", 50 }
+{ "oner", 50 }
+Calling getStringList()
+{ Peter, Paul, Mary, Bob }
+Calling setStringList()
+Calling getListOfMaps()
+"age" : "50"
+"name" : "michael"
+"age" : "45"
+"name" : "ritesh"
+```
+
 ## Build Instructions
 
 ```
